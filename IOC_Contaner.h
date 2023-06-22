@@ -3,6 +3,7 @@
 #include <memory>
 #include <map>
 #include <string>
+#include <QCoreApplication>
 using namespace std;
 
 class IOCContainer
@@ -185,8 +186,10 @@ public:
 };
 
 
-int main(int argc, const char *argv[])
+int ex_main(int argc, char *argv[])
 {
+
+    QCoreApplication a(argc, argv);
 	//------Example #1----------------
 	//Injector injector;
 	IOCContainer injector;
@@ -212,5 +215,5 @@ int main(int argc, const char *argv[])
 	//Опять запршиваем объект,после последней регистрации получим объект Privet
 	helloInstance = injector.GetObject<IHello>();
 	helloInstance->hello();
-	return 0;
+    return a.exec();
 }

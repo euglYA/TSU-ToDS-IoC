@@ -12,7 +12,7 @@ enum ProcessorType {
 class IProcessor {
 public:
     virtual ~IProcessor() {};
-    virtual void setProcessor(float cloacks, ProcessorType type, QString model) = 0;
+    virtual void setProcessor(double speed, ProcessorType type, QString version) = 0;
     virtual QString getProcessorInfo() = 0;
 };
 
@@ -27,11 +27,11 @@ public:
     }
 
     QString getProcessorType() const {
-        return (m_type == ProcessorType::x64 ? " x64 " : " x86 ");
+        return (m_type == ProcessorType::x64 ? "x64" : "x86");
     }
 
     QString getProcessorInfo() {
-        return "Intel " + getProcessorType() + "| model: " + m_version + " | speed: " + QString::number(m_speed) + " GHz \n";
+        return "Intel " + getProcessorType() + " | model: " + m_version + " | speed: " + QString::number(m_speed) + " GHz \n";
     }
 
 private:
@@ -51,11 +51,11 @@ public:
     }
 
     QString getProcessorType() const {
-        return (m_type == ProcessorType::x64 ? " x64 " : " x86 ");
+        return (m_type == ProcessorType::x64 ? "x64" : "x86");
     }
 
     QString getProcessorInfo() {
-        return "AMD " + getProcessorType() + "| model: " + m_version + " | speed: " + QString::number(m_speed) + " GHz \n";
+        return "AMD " + getProcessorType() + " | model: " + m_version + " | speed: " + QString::number(m_speed) + " GHz \n";
     }
 
 private:
