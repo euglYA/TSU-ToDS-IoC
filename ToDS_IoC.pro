@@ -16,4 +16,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     IOC_Contaner.h \
+    computer.h \
     cpu.h
